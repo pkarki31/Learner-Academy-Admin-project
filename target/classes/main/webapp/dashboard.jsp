@@ -13,6 +13,69 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.styled-table {
+    
+    margin: 30px 0;
+    font-size: 2em;
+    font-family: sans-serif;
+    min-width: 500px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 8px 35px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 4px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #009879;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+
+
+
+</style>
 </head>
 <body>
 	<%
@@ -22,23 +85,28 @@
 		}
 	%>
 	<div class="container mt-3">
-		<h2>Welcome to Geeta International School </h2>
+	<marquee>
+		<h1>********   Welcome to Geeta International School   ******** </h1>
+	</marquee>
+		
+		  <div style="float:right">
 		  <a href="logout.jsp"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-		  <a href="students"> <button class="btn btn-primary">View Students</button></a>
-		  <a href="teachers"> <button class="btn btn-primary">View Teachers</button></a>
-		  <a href="subjects"> <button class="btn btn-primary">View Subjects</button></a>
-		  <a href="classes"> <button class="btn btn-primary">View Classes</button></a>
+		  </div>
+		  <a href="students"> <button class="button">View Students</button></a>
+		  <a href="teachers"> <button class="button">View Teachers</button></a>
+		  <a href="subjects"> <button class="button">View Subjects</button></a>
+		  <a href="classes"> <button class="button">View Classes</button></a>
 		  
 		<%
 			String students = request.getParameter("students");
 			if (Objects.nonNull(students)) {
 
 				%>
-				<p>List of Students</p>
-				<table class="table table-striped">
+				<p>&nbsp</p>
+				<table class="styled-table">
 					<thead>
 						<tr>
-							<th>Id</th>
+							<th>Student Id</th>
 							<th>First Name</th>
 							<th>Last Name</th>
 							<th>Student Age</th>
@@ -57,7 +125,7 @@
 									String classes = (String) eachMap.get("studentClass");
 									
 									%>
-									<tr>
+									<tr class="active-row">
 										<td><%=studentId%></td>
 										<td><%=firstName%></td>
 										<td><%=lastName%></td>
@@ -68,7 +136,7 @@
 								}
 						%>
 					</tbody>
-					<a href="createStudent"><button class="btn btn-primary">Create Student</button></a>
+					<a href="createStudent"> <button class="button">Create Student</button></a>
 				</table>
 				<%
 				
@@ -80,8 +148,8 @@
 			if (Objects.nonNull(classes)) {
 
 				%>
-				<p>List of Classes</p>
-				<table class="table table-striped">
+				<p>&nbsp</p>
+				<table class="styled-table">
 					<thead>
 						<tr>
 							<th>Class Id</th>
@@ -103,7 +171,7 @@
 									
 									
 									%>
-									<tr>
+									<tr class="active-row">
 										<td><%=classId%></td>
 										<td><%=className%></td>
 										<td><%=classTeacherName%></td>
@@ -114,7 +182,7 @@
 								}
 						%>
 					</tbody>
-					<a href="createClass"><button class="btn btn-primary">Create Class</button></a>
+					<a href="createClass"> <button class="button">Create Class</button></a>
 				</table>
 				<%
 				
@@ -126,8 +194,8 @@
 			if (Objects.nonNull(teachers)) {
 
 				%>
-				<p>List of Teachers</p>
-				<table class="table table-striped">
+				<p>&nbsp</p>
+				<table class="styled-table">
 					<thead>
 						<tr>
 							<th>Teacher Id</th>
@@ -153,7 +221,7 @@
 									
 									
 									%>
-									<tr>
+									<tr class="active-row">
 										<td><%=teachersId%></td>
 										<td><%=teachersName%></td>
 										<td><%=classTeacher%></td>
@@ -166,7 +234,7 @@
 								}
 						%>
 					</tbody>
-					<a href="createTeacher"><button class="btn btn-primary">Create / Assign Teacher</button></a>
+					<a href="createTeacher"> <button class="button">Create / Assign Teacher</button></a>
 				</table>
 				<%
 				
@@ -178,10 +246,10 @@
 			if (Objects.nonNull(subjects)) {
 
 				%>
-				<p>List of Subjects</p>
-				<table class="table table-striped">
+				<p>&nbsp</p>
+				<table class="styled-table">
 					<thead>
-						<tr>
+						<tr >
 							<th>Subject Id</th>
 							<th>Subject</th>
 							<th>Subject Teacher</th>
@@ -203,7 +271,7 @@
 									
 									
 									%>
-									<tr>
+									<tr class="active-row">
 										<td><%=subjectId%></td>
 										<td><%=subject%></td>
 										<td><%=subjectTeacher%></td>
@@ -218,7 +286,7 @@
 					<!-- <form name="createSubjectForm" method="post" action="createSubjectServlet">
 					<a href="classes"><button class="btn btn-primary">Create / Assign Subject to Class</button></a>
 					</form>  -->
-					<a href="createSubject"><button class="btn btn-primary">Create / Assign Subject to Class</button></a>
+					<a href="createSubject"> <button class="button">Create / Assign Subject to Class</button></a>
 					
 				</table>
 				<%
