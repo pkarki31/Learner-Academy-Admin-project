@@ -24,22 +24,23 @@
 		}
 	%>
 	<div class="container">
-	<h1> Create Subject by filling below details  </h1>
-		<form action="createSubject" method="post">
+	<h1> Create Class by filling below details  </h1>
+		<form action="createClass" method="post">
 			
 			<div class="form-group">
-				<label for="subjectName">Enter Subject Name :</label> 
-				<input type="text" class="form-control" id="subjectName" name="subjectName" required >
+				<label for="className">Enter Class Name :</label> 
+				<input type="text" class="form-control" id="className" name="className" required >
 			</div>
 			<div class="form-group">
-				<label for="subjectName">Enter Teacher for this Subject :</label> 
-				<input type="text" class="form-control" id="subjectTeacher" name="subjectTeacher">
+				<label for="classTeacherName">Enter Class Teacher Name :</label> 
+				<input type="text" class="form-control" id="classTeacherName" name="classTeacherName"  required >
 			</div>
 			<div class="form-group">
-				<label for="subjectClass">Enter Class / Classes for this Subject :</label> 
-				<input type="text" class="form-control" id="subjectClass" name="subjectClass" required>
+				<label for="studentCount">Enter Students Count :  </label> 
+				<input type="text" class="form-control" id="studentCount" name="studentCount" required>
 			</div>
-			<button type="submit" class="btn btn-primary">Create Subject </button>
+			
+			<button type="submit" class="btn btn-primary">Create Class </button>
 		</form>
 	</div>
 </body>

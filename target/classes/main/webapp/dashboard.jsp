@@ -68,6 +68,7 @@
 								}
 						%>
 					</tbody>
+					<a href="createStudent"><button class="btn btn-primary">Create Student</button></a>
 				</table>
 				<%
 				
@@ -113,6 +114,7 @@
 								}
 						%>
 					</tbody>
+					<a href="createClass"><button class="btn btn-primary">Create Class</button></a>
 				</table>
 				<%
 				

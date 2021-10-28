@@ -40,21 +40,21 @@ public class ReadTeachers extends HttpServlet {
 
 			List<HashMap<Object, Object>> teachersMapList = new ArrayList<>();
 			for (Teachers teachers : teachersList) {
-				HashMap<Object, Object> stduentMap = new HashMap<>();
+				HashMap<Object, Object> teacherMap = new HashMap<>();
 				
-				stduentMap.put("teachersId", teachers.getTeachersID());
+				teacherMap.put("teachersId", teachers.getTeachersID());
 				
-				stduentMap.put("teachersName", teachers.getTeachersName());
+				teacherMap.put("teachersName", teachers.getTeachersName());
 				
-				stduentMap.put("classTeacher", teachers.getClassTeacher());
+				teacherMap.put("classTeacher", teachers.getClassTeacher());
 				
-				stduentMap.put("teachersAge", teachers.getAge());
+				teacherMap.put("teachersAge", teachers.getAge());
 				
-				stduentMap.put("teachersClasses", teachers.getTeacherClasses());
+				teacherMap.put("teachersClasses", teachers.getTeacherClasses());
 				
-				stduentMap.put("subject", teachers.getSubject());
+				teacherMap.put("subject", teachers.getSubject());
 				
-				teachersMapList.add(stduentMap);
+				teachersMapList.add(teacherMap);
 			}
 			JSONArray jsonArray = new JSONArray(teachersMapList);
 			request.getRequestDispatcher("dashboard.jsp?teachers=" + jsonArray.toString()).forward(request, response);

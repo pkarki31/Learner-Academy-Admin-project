@@ -25,8 +25,12 @@
 	%>
 	<div class="container">
 	<h1> Create Teachers by filling below details  </h1>
-		<form action="createSubject" method="post">
+		<form action="createTeacher" method="post">
 			
+			<!-- <div class="form-group">
+				<label for="teachersId">Enter Teacher Name :</label> 
+				<input type="text" class="form-control" id="teachersId" name="teachersId" required >
+			</div> -->
 			<div class="form-group">
 				<label for="teacherName">Enter Teacher Name :</label> 
 				<input type="text" class="form-control" id="teacherName" name="teacherName" required >
@@ -50,7 +54,7 @@
 				<input type="text" class="form-control" id="teacherClasses" name="teacherClasses" >
 			</div>
 			
-			<button type="submit" class="btn btn-primary">Create Subject </button>
+			<button type="submit" class="btn btn-primary">Create Teacher </button>
 		</form>
 	</div>
 </body>

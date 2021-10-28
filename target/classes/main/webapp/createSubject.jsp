@@ -26,10 +26,7 @@
 	<div class="container">
 	<h1> Create Subject by filling below details  </h1>
 		<form action="createSubject" method="post">
-			<div class="form-group">
-				<label for="subjectID">Enter Subject ID :</label> 
-				<input type="text" class="form-control" id="subjectId" name="subjectId" required>
-			</div>
+			
 			<div class="form-group">
 				<label for="subjectName">Enter Subject Name :</label> 
 				<input type="text" class="form-control" id="subjectName" name="subjectName" required >

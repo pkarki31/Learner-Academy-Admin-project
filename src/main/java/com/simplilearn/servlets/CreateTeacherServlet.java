@@ -19,6 +19,7 @@ import org.hibernate.Transaction;
 import org.json.JSONArray;
 
 import com.simplilearn.entity.Subjects;
+import com.simplilearn.entity.Teachers;
 import com.simplilearn.util.HibernateUtil;
 
 /**
@@ -48,45 +49,52 @@ public class CreateTeacherServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("subject id : "+request.getParameter("subjectId"));
+		System.out.println("teacher name : "+request.getParameter("teacherName"));
 		try {
 			SessionFactory factory = HibernateUtil.getSessionFactory();
 			Session session = factory.openSession();
 			Transaction transaction = session.beginTransaction(); 
-			Subjects sub = new Subjects();
-			//sub.setSubjectID((Integer)request.getParameter("subjectId"));
-			sub.setSubject(request.getParameter("subjectName"));
-			sub.setSubjectTeachers(request.getParameter("subjectTeacher"));
-			sub.setSubjectClasses(request.getParameter("subjectClass"));
-			//List<Subjects> subjectList = session.createQuery("from Subjects").getResultList();
-			session.save(sub);
+			Teachers teacher = new Teachers();
+			
+			//teacher.setTeachersID(Integer.parseInt(request.getParameter("teachersId")));
+			teacher.setTeachersName(request.getParameter("teacherName"));
+			teacher.setClassTeacher(request.getParameter("classTeacher"));
+			teacher.setSubject(request.getParameter("subject"));
+			teacher.setAge(Integer.parseInt(request.getParameter("age")));
+			teacher.setTeacherClasses(request.getParameter("teacherClasses"));
+			
+			session.save(teacher);
 			transaction.commit();
 			//session.createQuery("from Subjects")
 			PrintWriter out = response.getWriter();
-			out.println("subjectList" + sub);
+			out.println("teacherList" + teacher);
 						
 
-			List<Subjects> subjectList = session.createQuery("from Subjects").getResultList();
+			List<Teachers> teacherList = session.createQuery("from Teachers").getResultList();
 			PrintWriter out1 = response.getWriter();
-			out1.println("subjectList" + subjectList);
+			out1.println("teacherList" + teacherList);
 			
 
-			List<HashMap<Object, Object>> subjectMapList = new ArrayList<>();
-			for (Subjects subject : subjectList) {
-				HashMap<Object, Object> subjectMap = new HashMap<>();
+			List<HashMap<Object, Object>> teachersMapList = new ArrayList<>();
+			for (Teachers teachers : teacherList) {
+				HashMap<Object, Object> teacherMap = new HashMap<>();
 				
-				subjectMap.put("subjectId", subject.getSubjectID());
+				teacherMap.put("teachersId", teachers.getTeachersID());
 				
-				subjectMap.put("subject", subject.getSubject());
+				teacherMap.put("teachersName", teachers.getTeachersName());
 				
-				subjectMap.put("subjectTeacher", subject.getSubjectTeachers());
+				teacherMap.put("classTeacher", teachers.getClassTeacher());
 				
-				subjectMap.put("subjectClasses", subject.getSubjectClasses());
+				teacherMap.put("teachersAge", teachers.getAge());
 				
-				subjectMapList.add(subjectMap);
+				teacherMap.put("teachersClasses", teachers.getTeacherClasses());
+				
+				teacherMap.put("subject", teachers.getSubject());
+				
+				teachersMapList.add(teacherMap);
 			}
-			JSONArray jsonArray = new JSONArray(subjectMapList);
-			request.getRequestDispatcher("dashboard.jsp?subjects=" + jsonArray.toString()).forward(request, response);
+			JSONArray jsonArray = new JSONArray(teachersMapList);
+			request.getRequestDispatcher("dashboard.jsp?teachers=" + jsonArray.toString()).forward(request, response);
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
