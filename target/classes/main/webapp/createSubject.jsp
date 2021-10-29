@@ -33,7 +33,7 @@
 			</div>
 			<div class="form-group">
 				<label for="subjectName">Enter Teacher for this Subject :</label> 
-				<input type="text" class="form-control" id="subjectTeacher" name="subjectTeacher">
+				<input type="text" class="form-control" id="subjectTeacher" name="subjectTeacher" required>
 			</div>
 			<div class="form-group">
 				<label for="subjectClass">Enter Class / Classes for this Subject :</label> 

@@ -33,7 +33,7 @@
 			</div>
 			<div class="form-group">
 				<label for="studentLastName">Enter Student Last Name :</label> 
-				<input type="text" class="form-control" id="studentLastName" name="studentLastName">
+				<input type="text" class="form-control" id="studentLastName" name="studentLastName" required>
 			</div>
 			<div class="form-group">
 				<label for="studentAge">Enter Student Age :  </label> 

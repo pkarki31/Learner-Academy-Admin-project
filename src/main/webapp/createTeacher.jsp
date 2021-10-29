@@ -37,7 +37,7 @@
 			</div>
 			<div class="form-group">
 				<label for="classTeacher">Assign Class for which Teacher is class Teacher :</label> 
-				<input type="text" class="form-control" id="classTeacher" name="classTeacher">
+				<input type="text" class="form-control" id="classTeacher" name="classTeacher" required>
 			</div>
 			<div class="form-group">
 				<label for="subject">Assign Subject to Teacher :</label> 
@@ -51,7 +51,7 @@
 			
 			<div class="form-group">
 				<label for="teacherClasses">Assign Classes to Teacher :</label> 
-				<input type="text" class="form-control" id="teacherClasses" name="teacherClasses" >
+				<input type="text" class="form-control" id="teacherClasses" name="teacherClasses" required>
 			</div>
 			
 			<button type="submit" class="btn btn-primary">Create Teacher </button>
