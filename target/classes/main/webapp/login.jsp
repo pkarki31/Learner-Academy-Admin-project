@@ -19,11 +19,11 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<%
+	<%-- <%
 		if (request.getParameter("error") != null) {
 			out.println("<br> Your session has expired or it is invalid!");
 		}
-	%>
+	%> --%>
 	<div class="container">
 	<h1> Welcome to Geeta International School </h1>
 		<form action="login" method="post">

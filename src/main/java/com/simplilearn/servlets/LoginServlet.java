@@ -1,6 +1,9 @@
 package com.simplilearn.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,18 +24,29 @@ public class LoginServlet extends HttpServlet {
 		
 		System.out.println("Username :- "+ username + " Password :- "+ password);
 		
-
-		if (username == null | "".equals(username)) {
-			response.sendRedirect("invalid.jsp?error=1");
-		} else if (password == null | "".equals(password)) {
-			response.sendRedirect("invalid.jsp?error=2");
-		} else {
-			if ("admin".equals(username) && "admin".equals(password)) {
-				HttpSession session = request.getSession();
-				session.setAttribute("username", username);
-				request.getRequestDispatcher("dashboard.jsp").forward(request, response);
-			}
+		RequestDispatcher rd = null ;
+		
+		if("admin".equals(username) && "admin".equals(password)) {
+			
+			HttpSession session = request.getSession();
+ 			session.setAttribute("username", username);
+			request.getRequestDispatcher("dashboard.jsp").forward(request, response);
+			
+			
 		}
+		
+		else {
+			
+			rd= request.getRequestDispatcher("login.jsp");
+			PrintWriter writer = response.getWriter();
+			
+			rd.include(request, response);
+			
+			writer.print("<center> <h2><span style='color:red'>Invalid User Name or Password</span></h2></center>");
+			//response.sendRedirect("invalid.jsp?error=1");
+			
+		}
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
