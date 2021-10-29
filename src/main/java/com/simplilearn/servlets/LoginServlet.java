@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 			
 			rd.include(request, response);
 			
-			writer.print("<center> <h2><span style='color:red'>Invalid User Name or Password</span></h2></center>");
+			writer.print("<center> <h2><span style='color:red'>Invalid User 	Name or Password</span></h2></center>");
 			//response.sendRedirect("invalid.jsp?error=1");
 			
 		}
